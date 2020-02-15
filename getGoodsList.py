@@ -3,13 +3,13 @@ import urllib.parse
 from bs4 import BeautifulSoup
 
 api = "http://plus.kipris.or.kr/kipo-api/kipi/trademarkInfoSearchService/getAdvancedSearch"
-service_key = "서비스키"
+service_key = "서비스키="
 query = {
     "trademarkName" : "",
     "classification" : "",
-    "asignProduct" : "",
-    "applicationNumber" : "4120060014133",
-    "registerNumber" : "",
+    "asignProduct" : "폰케이",
+    "applicationNumber" : "",
+    "registerNumber" : "20200212~20200212",
     "publicationNumber" : "",
     "registrationPublicNumber" : "",
     "internationalRegisterNumber" : "",
@@ -49,7 +49,7 @@ query = {
 }
 
 # values 안에 한글이 있으므로 기계가 아는 문자(숫자, 알파벳)으로 인코딩
-params = urllib.parse.urlencode(query, doseq=False, safe=' ', encoding=None, errors=None)
+params = urllib.parse.urlencode(query, doseq=False, safe=' ', encoding='utf-8', errors=None)
 url = api + "?" + params + "&ServiceKey=" + service_key
 request = urllib.request.urlopen(url)
 
@@ -61,9 +61,9 @@ soup = BeautifulSoup(xml, 'html.parser')
 
 # 응답파라미터리스트
 item = soup.find("item")
-# print(item)
+
 listResponseParameter = []
-for tag in item.findChildren():
+for tag in item.find_all():
     listResponseParameter.append(tag.name)
 # print(listResponseParameter)
 

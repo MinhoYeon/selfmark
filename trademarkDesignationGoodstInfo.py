@@ -5,7 +5,7 @@ import urllib.parse
 from bs4 import BeautifulSoup
 
 api = "http://plus.kipris.or.kr/openapi/rest/trademarkInfoSearchService/trademarkDesignationGoodstInfo"
-service_key = "8bpZj9hNBYcxmcZmZOTb0Fyuw2pOrYz7KI116PcAyI8="
+service_key = "="
 
 query = {"applicationNumber" : "4020200022888"}
 

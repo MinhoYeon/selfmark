@@ -63,7 +63,7 @@ soup = BeautifulSoup(xml, 'html.parser')
 item = soup.find("item")
 # print(item)
 listResponseParameter = []
-for tag in item.findChildren():
+for tag in item.find_all(True):
     listResponseParameter.append(tag.name)
 # print(listResponseParameter)
 

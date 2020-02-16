@@ -3,7 +3,7 @@ import urllib.parse
 from bs4 import BeautifulSoup
 
 api = "http://plus.kipris.or.kr/kipo-api/kipi/trademarkInfoSearchService/getAdvancedSearch"
-service_key = "서비스키="
+service_key = "8bpZj9hNBYcxmcZmZOTb0Fyuw2pOrYz7KI116PcAyI8="
 query = {
     "trademarkName" : "",
     "classification" : "",
@@ -25,7 +25,7 @@ query = {
     "viennaCode" : "",
     "regPrivilegeName" : "",
     "freeSearch" : "",
-    "similarityCode" : "",
+    "similarityCode" : "G390702",
     "application" : "true",
     "registration" : "true",
     "refused" : "true",
@@ -52,6 +52,7 @@ query = {
 # "UTF-8"은 대문자로 써야함.
 params = urllib.parse.urlencode(query, doseq=False, safe=' ', encoding="UTF-8", errors=None)
 url = api + "?" + params + "&ServiceKey=" + service_key
+print("url: ", url)
 
 request = urllib.request.urlopen(url)
 

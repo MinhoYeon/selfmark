@@ -65,7 +65,7 @@ soup = BeautifulSoup(xml, 'html.parser')
 # 응답파라미터리스트를 추출하기
 firstItem = soup.find("item")
 listResponseParameter = []
-for tag in firstItem.findChildren():
+for tag in firstItem.find_all(True):
     listResponseParameter.append(tag.name)
 # print(listResponseParameter)
 

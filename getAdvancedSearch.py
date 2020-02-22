@@ -1,20 +1,30 @@
 import urllib.request
 import urllib.parse
 from bs4 import BeautifulSoup
+import kiprisPlus
 
-api = "http://plus.kipris.or.kr/kipo-api/kipi/trademarkInfoSearchService/getAdvancedSearch"
-service_key = "서비스키"
+# 상표 상세 검색한 정보를 가져옴
+def trademarkInfoSearchService(query):
+    api = kiprisPlus.api_getAdvancedSearch
+    service_key = kiprisPlus.service_key
+    params = urllib.parse.urlencode(query, doseq=False, safe=' ', encoding="UTF-8", errors=None)
+    url = api + "?" + params + "&ServiceKey=" + service_key
+    request = urllib.request.urlopen(url)
+    xml = request.read()
+    soup = BeautifulSoup(xml, 'html.parser')
+    return soup
+
 query = {
-    "trademarkName" : "",
+    "trademarkName" : "가가가가",
     "classification" : "",
     "asignProduct" : "",
-    "applicationNumber" : "4120060014133",
+    "applicationNumber" : "",
     "registerNumber" : "",
     "publicationNumber" : "",
     "registrationPublicNumber" : "",
     "internationalRegisterNumber" : "",
     "priorityNumber" : "",
-    "applicationDate" : "",
+    "applicationDate" : "20200103~20200103",
     "registerDate" : "",
     "publicationDate" : "",
     "registrationPublicDate" : "",
@@ -25,7 +35,7 @@ query = {
     "viennaCode" : "",
     "regPrivilegeName" : "",
     "freeSearch" : "",
-    "similarityCode" : "",
+    "similarityCode" : "G2601",
     "application" : "true",
     "registration" : "true",
     "refused" : "true",
@@ -47,30 +57,17 @@ query = {
     "numOfRows" : "20",
     "pageNo" : "1"
 }
-
-# values 안에 한글이 있으므로 기계가 아는 문자(숫자, 알파벳)으로 인코딩
-params = urllib.parse.urlencode(query, doseq=False, safe=' ', encoding=None, errors=None)
-url = api + "?" + params + "&ServiceKey=" + service_key
-request = urllib.request.urlopen(url)
-
-# text로 읽어들임
-xml = request.read()
-
-# text를 태깅 가능한 xml으로 변환
-soup = BeautifulSoup(xml, 'html.parser')
+soup = trademarkInfoSearchService(query)
 
 # 응답파라미터리스트
 item = soup.find("item")
-# print(item)
 listResponseParameter = []
 for tag in item.find_all(True):
     listResponseParameter.append(tag.name)
-# print(listResponseParameter)
 
 # item이 한 사건을 의미함
 items = soup.select("item")
 for item in items[:1]:
-    # print(item)
     # 응답파라미터를 받아서 하나씩 출력하기
     for i in range(len(listResponseParameter)):
         responseParameter = listResponseParameter[i]

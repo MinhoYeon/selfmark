@@ -19,6 +19,7 @@ def showInfoResponse(soup, listOfResponsePara):
             print("%s : " % (listOfResponsePara[i]), soup.select_one(listOfResponsePara[i]).text)
     return
 
+# 상표 상세 검색한 정보를 가져옴
 query = {
     "trademarkName" : "가가가가",
     "classification" : "",
@@ -62,11 +63,10 @@ query = {
     "numOfRows" : "20",
     "pageNo" : "1"
 }
-# 상표 상세 검색한 정보를 가져옴
 soup = getInfoFromApi.getAdvancedSearch(query)
 # 응답 파라미터의 리스트
 listOfResponsePara = getListOfResponsePara(soup)
-#
+# 상표 전체검색 정보를 보여줌
 showInfoResponse(soup, listOfResponsePara)
 
 

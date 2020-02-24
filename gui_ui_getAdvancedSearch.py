@@ -1,7 +1,5 @@
 import sys
 from PyQt5.QtWidgets import *
-import requests
-from bs4 import BeautifulSoup
 import getInfoFromApi
 from PyQt5 import uic
 form_class = uic.loadUiType("gui_ui_getAdvancedSearch.ui")[0]

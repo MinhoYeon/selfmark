@@ -1,11 +1,11 @@
 import sys
 from PyQt5.QtWidgets import *
-import getInfoFromApi
 from PyQt5 import uic
+import getInfoFromApi
+
 form_class = uic.loadUiType("gui_ui_getAdvancedSearch.ui")[0]
 
-class MyApp(QWidget, form_class):
-
+class MyWindow(QWidget, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -19,7 +19,6 @@ class MyApp(QWidget, form_class):
         # applicationDate_le = self.applicationDate_le.text()
         le_similarityCode = self.le_similarityCode.text()
 
-        self.lbl_text.setText('Search Results for "' + le_trademarkName + '"')
         self.textBrowser_searched.clear()
 
         query = {
@@ -78,6 +77,6 @@ class MyApp(QWidget, form_class):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = MyApp()
-    ex.show()
-    sys.exit(app.exec_())
+    myWindow = MyWindow()
+    myWindow.show()
+    app.exec()

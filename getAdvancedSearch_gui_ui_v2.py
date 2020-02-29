@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 import getInfoFromApi
 import kiprisPlus
-import xml_test
+import xml_advancedSerach
 from PyQt5.QtGui import *
 
 
@@ -90,7 +90,7 @@ class MyWindow(QWidget, form_class):
         # request = urllib.request.urlopen(url)
         # xml = request.read()
 
-        xml = xml_test.xml
+        xml = xml_advancedSerach.xml
         soup = BeautifulSoup(xml, 'html.parser')
         items = soup.select("item")
         for item in items[:2]:

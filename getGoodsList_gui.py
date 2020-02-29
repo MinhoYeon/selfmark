@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import *
 import getInfoFromApi
 from PyQt5 import uic
 
-form_class = uic.loadUiType("gui_getGoodsList.ui")[0]
+form_class = uic.loadUiType("getGoodsList_gui.ui")[0]
 
 
 class MyApp(QWidget, form_class):

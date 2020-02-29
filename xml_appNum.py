@@ -1,0 +1,40 @@
+xml="""
+    <response>
+    <header>
+    <resultCode/>
+    <resultMsg/>
+    </header>
+    <body>
+    <items>
+    <TotalSearchCount>1</TotalSearchCount>
+    <TradeMarkInfo>
+    <SerialNumber>1</SerialNumber>
+    <ApplicationNumber>4020077000311</ApplicationNumber>
+    <ApplicationDate>20061005</ApplicationDate>
+    <PublicNumber>4020070064074</PublicNumber>
+    <PublicDate>20071107</PublicDate>
+    <RegistrationPublicNumber/>
+    <RegistrationPublicDate/>
+    <RegistrationNumber>4007360880000</RegistrationNumber>
+    <RegistrationDate>20080131</RegistrationDate>
+    <PriorityClaimNumber>77009941</PriorityClaimNumber>
+    <PriorityClaimDate>20060928</PriorityClaimDate>
+    <ApplicationStatus>소멸</ApplicationStatus>
+    <GoodClassificationCode>21</GoodClassificationCode>
+    <ViennaCode>020915</ViennaCode>
+    <ApplicantName>Wind of Trade LLC</ApplicantName>
+    <AgentName/>
+    <RegistrationRightholderName>Wind of Trade LLC</RegistrationRightholderName>
+    <Title>The 'Ove'Glove</Title>
+    <FulltextExistFlag>Y</FulltextExistFlag>
+    <ImagePath>
+    http://plus.kipris.or.kr/kiprisplusws/fileToss.jsp?arg=ed43a0609e94d6e251697a9d72a91344489d1903b5ad93ad13c8e28f02ea57f451c95205ab4503a1180fa3ac0e87d34a
+    </ImagePath>
+    <ThumbnailPath>
+    http://plus.kipris.or.kr/kiprisplusws/fileToss.jsp?arg=ad7a17eeeef6e4ea4b5e22ef00dd3e298f3b6ac8650b35886588fe27b827c01b453cf4ccdc0fe1e7d80cc17fc818659c
+    </ThumbnailPath>
+    </TradeMarkInfo>
+    </items>
+    </body>
+    </response>
+    """

@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 import getInfoFromApi
 
-form_class = uic.loadUiType("gui_ui_getAdvancedSearch.ui")[0]
+form_class = uic.loadUiType("getAdvancedSearch_gui_ui.ui")[0]
 
 class MyWindow(QWidget, form_class):
     def __init__(self):

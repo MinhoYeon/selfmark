@@ -10,8 +10,13 @@ class MyWindow(QMainWindow, form_class):
         self.setupUi(self)
         self.pushButton.clicked.connect(self.btn_clicked)
 
+
     def btn_clicked (self):
         QMessageBox.about(self, "message", "Clicked")
+        for i in range(5):
+            self.label = "label_" + str(i)
+            self.label = QLabel()
+            self.label.setText(str(i))
 
 
 if __name__ == "__main__":
